@@ -1,16 +1,29 @@
-console.log("js page is intigrated successfully")
 function dis(n){
-    //var a= document.getElementById(n).value;
-    console.log(`Button ${n} pressed`);
-    console.log(n);
-    document.getElementById("result").innerHTML += n;
+    console.log(`Button ${n} pressed`)
+    //document.getElementById("result").value = document.getElementById("result").value=n
+    document.getElementById("result").value+=n
 }
-function solve(){
-    console.log(`Button  pressed`);
-    var s= document.getElementById("result").innerHTML;
-    console.log(s);
-    document.getElementById("result").innerHTML=eval(s);
+
+function solve() {
+  let val = document.getElementById("result").value;
+  let result = 0;
+
+  if (val.includes('+')) {
+    let parts = val.split('+');
+    result = Number(parts[0]) + Number(parts[1]);
+  } else if (val.includes('-')) {
+    let parts = val.split('-');
+    result = Number(parts[0]) - Number(parts[1]);
+  } else if (val.includes('*')) {
+    let parts = val.split('*');
+    result = Number(parts[0]) * Number(parts[1]);
+  } else if (val.includes('/')) {
+    let parts = val.split('/');
+    result = Number(parts[0]) / Number(parts[1]);
+  }
+
+  document.getElementById("result").value = result;
 }
 function clr(){
-     document.getElementById("result").innerHTML="";
+    document.getElementById("result").value = "";
 }
